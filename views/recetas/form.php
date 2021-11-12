@@ -20,20 +20,11 @@
 <div class="container-fluid">
 <form>
     <h1>GENERAR RECETA</h1>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
+    <h4 class="text-right"><b>Id_cita:</b> 00001</h4>
+    <h4 class="text-right"><b>Fecha:</b> 01/01/2021</h4>
+    <h4><b>Odontólogo:</b> Juan Perez Perez</h4>
+    <h4><b>Paciente:</b> Luis Lopez Lopez</h4>
+</br>   
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Descripcion de la cita</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -42,6 +33,6 @@
     <label for="exampleFormControlTextarea1">Tratamiento</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <button type="button" class="btn btn-primary btn-lg">Generar</button>
+  <button style="float: right;" class="btn btn-primary btn-lg">Generar</button>
 </form>
 </div>
