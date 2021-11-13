@@ -20,9 +20,9 @@
 <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>
-                        <small>REGISTRAR PACIENTE</small>
-                    </h1>
+                    <h2>
+                        REGISTRAR PACIENTE
+                    </h2>
                 </div>
                 <form role="form">
 
