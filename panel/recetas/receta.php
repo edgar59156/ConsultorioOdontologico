@@ -47,9 +47,7 @@ switch ($accion) {
         $datosOdontologo = $receta->readOdontologo();
         $datosPaciente = $receta->readPaciente();
         $datosCita = $receta->readCita();
-        print_r($datosCita);
-        print_r($datosOdontologo);
-        print_r($datosPaciente);
+
         require_once('../../views/recetas/form.php');
  
 }
