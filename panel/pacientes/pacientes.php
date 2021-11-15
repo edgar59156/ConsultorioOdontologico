@@ -21,13 +21,15 @@ switch ($action) {
         break;
 
     case 'save':
-        $datos = $_POST['paciente'];
+        $paciente = $_POST['paciente'];
+       // $fotografia=$_POST['fotografia'];
+        echo ('<pre>');
         print_r($_POST);
-        $resultado = $pacientes->create($datos['nombre'], $datos['apaterno'], $datos['amaterno'], $datos['nacimiento'], $datos['correo']);
+        $resultado = $pacientes->create($paciente['nombre'], $paciente['apaterno'], $paciente['amaterno'], $paciente['nacimiento'], $paciente['correo']);
         $datos = $pacientes->readPaciente();
-        print_r($datos);
+        
 
-        include('../../views/registro/index.php');
+        include('../../views/pacientes/index.php');
         break;
         /* case 'delete':
             $id_paciente = $_GET['id_paciente'];

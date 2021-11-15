@@ -42,18 +42,77 @@
 
         function create($nombre, $apaterno, $amaterno, $nacimiento, $correo){
             $dbh = $this -> Connect();
-            $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo)
-                         VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo)";
-            $stmt = $this->con->prepare($sentencia);
+            $foto = $this -> guardarFotografia();
+           // $dbh -> beginTransaction();
+           // try{
+            if($foto){
+                $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo, fotografia)
+                              VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo, :fotografia)";
+                 $stmt = $this->con->prepare($sentencia);
+                $stmt -> bindParam(":fotografia", $foto, PDO::PARAM_STR);
+            } else {
+                $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo)
+                                        VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo)";
+                 $stmt = $this->con->prepare($sentencia);
+            }
             $stmt -> bindParam(":nombre", $nombre, PDO::PARAM_STR);
             $stmt -> bindParam(":apaterno", $apaterno, PDO::PARAM_STR);
             $stmt -> bindParam(":amaterno", $amaterno, PDO::PARAM_STR);
             $stmt -> bindParam(":nacimiento", $nacimiento, PDO::PARAM_STR);
             $stmt -> bindParam(":correo", $correo, PDO::PARAM_STR);
             $stmt -> execute();
-            return $stmt;
-                
+            return $stmt;  
+            
+        }
+       /* catch(Exception $e){
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            $dbh -> rollBack();
+        }
+        $dbh -> rollBack();
+    }*/
+
+    function guardarFotografia(){ 
+        $archivo = $_FILES['fotografia'];
+        $tipos = array('image/jpeg', 'image/png', 'image/gif');
+        if($archivo['error'] == 0)
+        {
+            if(in_array($archivo['type'],$tipos))
+            {
+                if($archivo['size'] <= 2097152)
+                {
+                        $a = explode('/', $archivo['type']);
+                        $nueva_imagen = MD5(time()) . '.' . $a[1];
+                        if(move_uploaded_file($archivo['tmp_name'], 'archivos/' . $nueva_imagen))
+                        {
+                            return $nueva_imagen; 
+                        }
+                 }
+            
             }
+        }
+        else{
+            return false;
+        }
+    }
+   /* public function cargarImagen($dimension, $destino)
+    {
+        if ($_FILES[$dimension]['error'] == 0) {
+            $tiposPermitidos = array("image/gif", "image/jpeg", "image/png");
+            if (in_array($_FILES[$dimension]['type'], $tiposPermitidos)) {
+                if ($_FILES[$dimension]['size'] <= 512000) {
+                    $nombre = md5(time());
+                    $extension = explode("/", $_FILES[$dimension]['type']);
+                    $nombre = $nombre . "." . $extension[1];
+                    $destino = $destino . $nombre;
+                    if (move_uploaded_file($_FILES[$dimension]['tmp_name'], $destino)) {
+                        return $nombre;
+                    }
+                }
+            }
+        }
+        return null;
+    }*/
+
             public function readPaciente()
             {
                 $this->connect();
@@ -74,34 +133,6 @@
                 $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 return $datos;
             }
-
-        /* 
-        * Método para subir una fotografia de un paciente
-        * Return Boolean 
-        */
-       /* function guardarFotografia(){ 
-            $archivo = $_FILES['fotografia'];
-            $tipos = array('image/jpeg', 'image/png', 'image/gif');
-            if($archivo['error'] == 0)
-            {
-                if(in_array($archivo['type'],$tipos))
-                {
-                    if($archivo['size'] <= 2097152)
-                    {
-                            $a = explode('/', $archivo['type']);
-                            $nueva_imagen = MD5(time()) . '.' . $a[1];
-                            if(move_uploaded_file($archivo['tmp_name'], 'archivos/' . $nueva_imagen))
-                            {
-                                return $nueva_imagen; 
-                            }
-                     }
-                
-                }
-            }
-            else{
-                return false;
-            }
-        }*/
   
     }
     $paciente = New Paciente;

@@ -54,7 +54,7 @@
           <th scope="row"><?php echo $dato['id_paciente'] ?></th>
           <td>
             <div class="text-center">
-              <img src="image/pacientes/<?php echo $dato['fotografia'] ?>" class="rounded-circle" width="100" height="110" alt="...">
+            <img src="<?php echo (isset($dato['fotografia']))? 'archivos/'.$dato['fotografia']: 'archivos/default.jpg'; ?>" alt="foto paciente" class="rounded-circle img-fluid" width="100px">
             </div>
           </td>
           <td><?php echo $dato['nombre'] ?></td>

@@ -23,6 +23,9 @@
                     <h2>
                         REGISTRAR PACIENTE
                     </h2>
+                    <?php if(isset($datos[0]['fotografia'])):?> 
+<img src="archivos/<?php echo($datos[0]['fotografia']); ?>" class="rounded-circle" width="200" height="200"> 
+<?php endif; ?>
 
 
                 </div>
