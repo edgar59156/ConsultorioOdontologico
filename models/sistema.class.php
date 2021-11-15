@@ -1,5 +1,7 @@
 <?php
 
+// clase de base de datos
+
 class Sistema
 {
     public $con;
