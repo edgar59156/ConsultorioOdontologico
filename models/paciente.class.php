@@ -64,7 +64,16 @@
                 $datos=(isset($datos[0]))?$datos[0]:null;
                 return $datos;
             }
-          
+
+            public function read()
+            {
+                $this->connect();
+                $sql = "SELECT * FROM paciente";
+                $stmt = $this->con->prepare($sql);
+                $stmt->execute();
+                $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $datos;
+            }
 
         /* 
         * Método para subir una fotografia de un paciente
@@ -95,3 +104,4 @@
         }*/
   
     }
+    $paciente = New Paciente;
