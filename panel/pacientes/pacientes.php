@@ -10,16 +10,13 @@
             require_once('../../views/registro/form.php');
         break;
         case 'save':
-           // print_r($_POST['paciente']);
-           // die();
         $datos = $_POST['paciente'];
-        print_r($_POST);
+       print_r($_POST);
         $resultado = $pacientes -> create($datos['nombre'], $datos['apaterno'], $datos['amaterno'], $datos['nacimiento'], $datos['correo']);
-        $pacientes->mensaje($resultado,($resultado)?"El paciente se agrego correctamente":"Ocurrió un error");
         $datos = $pacientes->readPaciente();
-        print_r($datos);
+       print_r($datos);
             
-           include('views/registro/index.php');
+           include('../../views/registro/index.php');
             break;
        /* case 'delete':
             $id_paciente = $_GET['id_paciente'];
@@ -77,10 +74,10 @@
             break;*/
         default:
        
-        $datosPaciente = $pacientes->readPaciente();
+       
     
 
-        require_once('../../views/registro/form.php');
+       // require_once('../../views/registro/form.php');
     }
 
    // include('views/footer.php');

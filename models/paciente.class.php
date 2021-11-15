@@ -44,7 +44,7 @@
             $dbh = $this -> Connect();
             $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo)
                          VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo)";
-            $stmt = $dbh -> prepare($sentencia);
+            $stmt = $this->con->prepare($sentencia);
             $stmt -> bindParam(":nombre", $nombre, PDO::PARAM_STR);
             $stmt -> bindParam(":apaterno", $apaterno, PDO::PARAM_STR);
             $stmt -> bindParam(":amaterno", $amaterno, PDO::PARAM_STR);
@@ -57,9 +57,8 @@
             public function readPaciente()
             {
                 $this->connect();
-                $sentencia = 'SELECT * FROM paciente p WHERE p.nombre LIKE :busqueda
-                ORDER BY :ordenamiento LIMIT :limite OFFSET :desde';
-                $stmt = $this->con->prepare($sql);
+                $sentencia = 'SELECT * FROM paciente p WHERE p.nombre';
+                $stmt = $this->con->prepare($sentencia);
                 $stmt->execute();
                 $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $datos=(isset($datos[0]))?$datos[0]:null;
