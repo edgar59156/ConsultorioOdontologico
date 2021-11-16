@@ -39,7 +39,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Fotografia</th>
+     
         <th scope="col">Nombre</th>
         <th scope="col">Apellido paterno</th>
         <th scope="col">Apellido materno</th>
@@ -48,18 +48,14 @@
     </thead>
     <tbody>
       <?php
-      foreach ($datos as $key => $dato) :
+      foreach ($datos as $key => $paciente) :
       ?>
         <tr>
-          <th scope="row"><?php echo $dato['id_paciente'] ?></th>
-          <td>
-            <div class="text-center">
-            <img src="<?php echo (isset($dato['fotografia']))? 'archivos/'.$dato['fotografia']: 'archivos/default.jpg'; ?>" alt="foto paciente" class="rounded-circle img-fluid" width="100px">
-            </div>
-          </td>
-          <td><?php echo $dato['nombre'] ?></td>
-          <td><?php echo $dato['apaterno'] ?></td>
-          <td><?php echo $dato['amaterno'] ?></td>
+          <th scope="row"><?php echo $paciente['id_paciente'] ?></th>
+         
+          <td><?php echo $paciente['nombre'] ?></td>
+          <td><?php echo $paciente['apaterno'] ?></td>
+          <td><?php echo $paciente['amaterno'] ?></td>
           <td>
             <ul>
               <i class="btn btn-success bi bi-pencil"><a href="pacientes.php?action=agendar&id_paciente=<?php echo $dato['id_paciente']; ?>" style="color: black;">Agendar cita</a></i>

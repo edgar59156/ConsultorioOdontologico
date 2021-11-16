@@ -61,16 +61,7 @@
                         <input type="email" class="form-control" id="exampleInputEmail1" required placeholder="Correo" name="paciente[correo]" value="<?php echo (isset($datos[0]['correo']))?$datos[0]['correo']:'';?>">
                     </div>
 
-                    <div class="form-group">
-
-                        <label for="exampleInputFile">
-							Fotografía
-					</label>
-                        <input type="file" class="form-control-file" id="exampleInputFile" name="fotografia">
-                        <p class="help-block">
-
-                        </p>
-                    </div>
+                   
 
                     <div class="form-group">
                   <input type="hidden" name="paciente[id_paciente]" value="<?php echo (isset($datos[0]['id_paciente']))?$datos[0]['id_paciente']:''; ?>"/>

@@ -41,20 +41,10 @@
         */
 
         function create($nombre, $apaterno, $amaterno, $nacimiento, $correo){
-            $dbh = $this -> Connect();
-            $foto = $this -> guardarFotografia();
-           // $dbh -> beginTransaction();
-           // try{
-            if($foto){
-                $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo, fotografia)
-                              VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo, :fotografia)";
-                 $stmt = $this->con->prepare($sentencia);
-                $stmt -> bindParam(":fotografia", $foto, PDO::PARAM_STR);
-            } else {
-                $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo)
-                                        VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo)";
-                 $stmt = $this->con->prepare($sentencia);
-            }
+           $this->connect();
+         $sentencia = "INSERT INTO paciente(nombre, apaterno, amaterno, nacimiento, correo)
+                        VALUES(:nombre, :apaterno, :amaterno, :nacimiento, :correo)";
+            $stmt = $this->con->prepare($sentencia);
             $stmt -> bindParam(":nombre", $nombre, PDO::PARAM_STR);
             $stmt -> bindParam(":apaterno", $apaterno, PDO::PARAM_STR);
             $stmt -> bindParam(":amaterno", $amaterno, PDO::PARAM_STR);
@@ -64,6 +54,7 @@
             return $stmt;  
             
         }
+    
        /* catch(Exception $e){
             echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             $dbh -> rollBack();
@@ -71,7 +62,7 @@
         $dbh -> rollBack();
     }*/
 
-    function guardarFotografia(){ 
+    /*function guardarFotografia(){ 
         $archivo = $_FILES['fotografia'];
         $tipos = array('image/jpeg', 'image/png', 'image/gif');
         if($archivo['error'] == 0)
@@ -93,7 +84,7 @@
         else{
             return false;
         }
-    }
+    }*/
    /* public function cargarImagen($dimension, $destino)
     {
         if ($_FILES[$dimension]['error'] == 0) {
