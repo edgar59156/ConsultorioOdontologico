@@ -1,6 +1,7 @@
 <?php
 require_once('../../models/paciente.class.php');
 require_once('../../models/receta.class.php');
+require_once('../../views/header/header.php');
 $sistema = new Sistema;
 $pacientes = new Paciente;
 

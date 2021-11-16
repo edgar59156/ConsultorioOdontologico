@@ -1,6 +1,6 @@
 <?php
 require_once('../../models/receta.class.php');
-
+require_once('../../views/header/header.php');
 $id_cita = null;
 $accion = null;
 if (isset($_GET['accion'])) {

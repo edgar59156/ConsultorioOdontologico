@@ -1,4 +1,4 @@
-<!--Comentario-->
+<!-- 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <title>Consultorio Odontológico</title>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,7 +15,7 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
 
 <div class="container-fluid">
 <form method="POST" action="receta.php?accion=<?php echo (isset($id_receta)) ? "update&id_receta=" . $id_receta : "add"; ?>" enctype='multipart/form-data' >

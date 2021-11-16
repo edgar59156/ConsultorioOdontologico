@@ -1,32 +1,5 @@
 
-<!DOCTYPE html>
-<html>
-<head>   
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <title>Agendar cita</title>
-
-  <style>
-  </style>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Registrar paciente <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/ConsultorioOdontologico/views/citas/test.php">Registrar cita</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Prescribir receta</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div style="background:;height: auto;" class="">
+<div style="height: auto;" class="">
 <h1 style="margin-left:20px;">Agendar cita</h3>
 
 <div>
@@ -40,7 +13,7 @@
 
   <div style="margin-left:50px;margin-top:60px" class="row">
   <label for="floatingInput">Descripcion de la cita</label>
-    <input style="margin-left:310px;width:750px" type="text" name="descripcion" value="" class="form-control" placeholder="Ingresar" style=" width:">
+    <input style="margin-left:310px;width:750px" type="text" name="descripcion" value="" class="form-control" placeholder="Ingresar" style=" ">
     
   </div>
 

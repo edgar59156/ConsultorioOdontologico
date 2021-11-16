@@ -1,10 +1,10 @@
 <?php
 require_once('../../models/citas.class.php');
+require_once('../../views/header/header.php');
 
 // controlador
 // manda llamar funcions de modelo o clase (citas.class.php)
-
-$accion = $_POST['accion'];
+$accion = (isset($_GET['accion'])) ? $_GET['accion'] : 'read';
 
 // if (isset($_GET['accion'])) {
 //     $id_cita = isset($_GET['id_cita']) ? $_GET['id_cita'] : null;
