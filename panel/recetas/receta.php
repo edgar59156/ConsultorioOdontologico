@@ -23,7 +23,7 @@ switch ($accion) {
         $datos = $_POST;
         print_r($_POST);
         $resultado = $receta->create($datos);
-        $receta->mensaje($resultado,($resultado)?"La receta se agrego correctamente":"Ocurrió un error");
+        $receta->mensaje($resultado,($resultado)?"Receta guardada correctamente":"Ocurrió un error");
         $datosOdontologo = $receta->readOdontologo();
         $datosPaciente = $receta->readPaciente();
         $datosCita = $receta->readCita();

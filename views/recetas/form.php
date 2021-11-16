@@ -11,7 +11,7 @@
         <a class="nav-link" href="#">Registrar cita</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Prescribir cita</a>
+        <a class="nav-link" href="/ConsultorioOdontologico/views/recetas/form.php">Escribir Receta</a>
       </li>
     </ul>
   </div>
@@ -34,6 +34,6 @@
     <label for="exampleFormControlTextarea1">Tratamiento</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tratamiento"></textarea>
   </div>
-  <input  style="float: right;" class="btn btn-primary btn-lg" type="submit" name="Guardar" value="Generar" href="receta.php?accion=add&id_cita=<?php echo $dato['id_cita']; ?>">
+  <input  style="float: right;" class="btn btn-primary btn-lg" type="submit" name="Guardar" value="Guardar receta" href="receta.php?accion=add&id_cita=<?php echo $dato['id_cita']; ?>">
 </form>
 </div>
