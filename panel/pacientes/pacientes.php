@@ -26,6 +26,7 @@ switch ($action) {
       //  echo ('<pre>');
        // print_r($_POST);
         $resultado = $pacientes->create($paciente['nombre'], $paciente['apaterno'], $paciente['amaterno'], $paciente['nacimiento'], $paciente['correo']);
+        $pacientes->mensaje($resultado,($resultado)?"El paciente se agrego correctamente":"Ocurrió un error");
         $datos = $pacientes->read();
         require_once('../../views/pacientes/index.php');
         break;
