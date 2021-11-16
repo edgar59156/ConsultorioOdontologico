@@ -61,7 +61,7 @@
   <input type="hidden" name="id_odontologo" value="1" class="form-control">
   
   <div style="margin-left:1130px;margin-top:76px" class="form-group">
-    <input style="color: white;background:black;width:130px;height:40px;border-color:black" type="submit" name="enviar" value="Guardar" class="btn btn-success" />
+    <input style="color: white;background:black;width:130px;height:40px;border-color:black" type="submit" name="enviar" value="Agendar cita" class="btn btn-success" />
   </div>
 
 </form>

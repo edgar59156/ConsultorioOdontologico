@@ -11,8 +11,8 @@ class Sistema
         $dbDriver = "mysql";
         $dbHost = "localhost";
         $db = "bd_odontologo";
-        $dbUser = "odontologo";
-        $dbPass = "123";
+        $dbUser = "root";
+        $dbPass = "";
         // $this->con = new mysqli($dbHost, $dbUser, $dbPass, $db);
 
         $this->con = new PDO($dbDriver . ':host=' . $dbHost . ';dbname=' . $db, $dbUser, $dbPass);
