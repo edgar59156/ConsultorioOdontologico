@@ -104,11 +104,12 @@
         return null;
     }*/
 
-            public function readPaciente()
+            public function readPaciente($id_paciente)
             {
                 $this->connect();
-                $sentencia = 'SELECT * FROM paciente p WHERE p.nombre';
+                $sentencia = 'SELECT * FROM paciente p WHERE id_paciente = :id_paciente';
                 $stmt = $this->con->prepare($sentencia);
+                $stmt -> bindParam(":id_paciente", $id_paciente, PDO::PARAM_INT);
                 $stmt->execute();
                 $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $datos=(isset($datos[0]))?$datos[0]:null;

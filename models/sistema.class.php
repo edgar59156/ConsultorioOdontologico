@@ -55,7 +55,7 @@ class Sistema
                 $color = "danger";
                 break;
             default:
-                $color = "dark";
+                $color = "success";
                 break;
         }
         require_once("mensaje.php");

@@ -19,7 +19,7 @@
         <a class="nav-link" href="/ConsultorioOdontologico/panel/citas/cita.php">Registrar cita</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Prescribir receta</a>
+        <a class="nav-link" href="pacientes.php?action=prescribir&id_paciente=1">Prescribir receta</a>
       </li>
     </ul>
   </div>

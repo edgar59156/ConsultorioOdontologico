@@ -26,8 +26,8 @@
           <td><?php echo $paciente['amaterno'] ?></td>
           <td>
             <ul>
-              <i class="btn btn-success bi bi-pencil"><a href="pacientes.php?action=agendar&id_paciente=<?php echo $dato['id_paciente']; ?>" style="color: black;">Agendar cita</a></i>
-              <i class="btn btn-primary bi bi-pencil"><a href="pacientes.php?action=prescribir&id_paciente=<?php echo $dato['id_paciente']; ?>" style="color: black;">Prescribir receta</a></i>
+              <i class="btn btn-success bi bi-pencil"><a href="pacientes.php?action=agendar&id_paciente=<?php echo $paciente['id_paciente']; ?>" style="color: black;">Agendar cita</a></i>
+              <i class="btn btn-primary bi bi-pencil"><a href="pacientes.php?action=prescribir&id_paciente=<?php echo $paciente['id_paciente'];?>" style="color: black;">Prescribir receta</a></i>
             </ul>
           </td>
         </tr>

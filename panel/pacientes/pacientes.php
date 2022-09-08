@@ -2,6 +2,7 @@
 require_once('../../models/paciente.class.php');
 require_once('../../models/receta.class.php');
 require_once('../../views/header/header.php');
+require_once('../../models/citas.class.php');
 $sistema = new Sistema;
 $pacientes = new Paciente;
 
@@ -11,13 +12,25 @@ switch ($action) {
         require_once('../../views/registro/form.php');
         break;
     case 'agendar':
+        $datosPaciente = $receta->readPaciente($_GET['id_paciente']);
+        //$Cita->mensaje($resultado,($resultado)?"Cita agendada correctamente":"Error al agendar cita");
         require_once('../../views/citas/test.php');
         break;
+
+    /*case 'add1':
+           // $datos = $_POST;
+            print_r($datos);
+            $resultado = $Cita->create($datos);
+            print_r($datos);
+            $Cita->mensaje($resultado,($resultado)?"Cita agendada correctamente":"Error al agendar cita");
+            require_once('../../views/citas/test.php');
+            break;
+
+    */
     case 'prescribir':
         $datosOdontologo = $receta->readOdontologo();
-        $datosPaciente = $receta->readPaciente();
-        $datosCita = $receta->readCita();
-        require_once('../../views/recetas/form.php');
+        $datosPaciente = $receta->readPaciente($_GET['id_paciente']);
+        $datosCita = $receta->readCita($_GET['id_paciente']);
         require_once('../../views/recetas/form.php');
         break;
 
@@ -31,13 +44,14 @@ switch ($action) {
         $datos = $pacientes->read();
         require_once('../../views/pacientes/index.php');
         break;
-        /* case 'delete':
+
+    case 'prescribir':
             $id_paciente = $_GET['id_paciente'];
-            $resultado = $pacientes -> delete($id_paciente);
-            $datos = $pacientes -> read();
-            include('views/pacientes/index.php');
-            break;
-        case 'show':
+            $datos = $pacientes -> readPaciente();
+            include('views/recetas/form.php');
+        break;
+       /*
+            case 'show':
             $id_paciente = $_GET['id_paciente'];
             $datos = $pacientes -> readOne($id_paciente);
             include('views/pacientes/form.php');

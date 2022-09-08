@@ -29,21 +29,24 @@ class Receta extends Sistema
         $datos=(isset($datos[0]))?$datos[0]:null;
         return $datos;
     }
-    public function readPaciente()
+    
+    public function readPaciente($id_paciente)
     {
         $this->connect();
-        $sql = "SELECT  *  from paciente WHERE id_paciente = 1";
+        $sql = "SELECT  *  from paciente WHERE id_paciente =:id_paciente";
         $stmt = $this->con->prepare($sql);
-        $stmt->execute();
+        $stmt->bindParam(':id_paciente', $id_paciente, PDO::PARAM_INT);
+        $stmt->execute(); 
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $datos=(isset($datos[0]))?$datos[0]:null;
         return $datos;
     }
-    public function readCita()
+    public function readCita($id_paciente)
     {
         $this->connect();
-        $sql = "SELECT  *  from cita where id_cita = 1";
+        $sql = "SELECT  *  from cita where id_paciente =:id_paciente";
         $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':id_paciente', $id_paciente, PDO::PARAM_INT);
         $stmt->execute();
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $datos=(isset($datos[0]))?$datos[0]:null;

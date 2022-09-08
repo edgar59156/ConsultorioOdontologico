@@ -21,16 +21,17 @@ switch ($accion) {
 
     case 'add':
         $datos = $_POST;
-        print_r($_POST);
+        //print_r($_POST);
+        //print_r($_GET);
         $resultado = $receta->create($datos);
         $receta->mensaje($resultado,($resultado)?"Receta guardada correctamente":"Ocurrió un error");
-        $datosOdontologo = $receta->readOdontologo();
-        $datosPaciente = $receta->readPaciente();
-        $datosCita = $receta->readCita();
-        print_r($datosCita);
-        print_r($datosOdontologo);
-        print_r($datosPaciente);
-        require_once('../../views/recetas/form.php');
+       // $datosOdontologo = $receta->readOdontologo();
+       // $datosPaciente = $receta->readPaciente($_POST['id_paciente']);
+       // $datosCita = $receta->readCita($_POST['id_cita']);
+       // print_r($datosCita);
+       // print_r($datosOdontologo);
+       // print_r($datosPaciente);
+        require_once('../../panel/pacientes/pacientes.php');
         break;
 
     case 'modify':
